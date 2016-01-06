@@ -15,6 +15,7 @@ public class HandleClick : MonoBehaviour {
     //private GameObject textDatabase;
     public void displayTextbox(GameObject box) {
         box.SetActive(true);
+        doTheHand(0, box);
     }
 
     public void doTheHand(int buttonId, GameObject box) {
@@ -26,15 +27,17 @@ public class HandleClick : MonoBehaviour {
 
 
         // bota caixa de texto
-        this.displayTextbox(box);
+        //this.displayTextbox(this.textbox);
+
         // imprime texto
-        // 
+        UnityEngine.UI.Text text = (UnityEngine.UI.Text) this.textbox.transform.GetChild(0).GetComponent<UnityEngine.UI.Text>();
+        text.text = snippet.text;
     }
 
     public void Update() {
         const int MOUSE_LEFT = 0;
         if (Input.GetMouseButton(MOUSE_LEFT)) {
-            this.textbox.SetActive(false);
+            //this.textbox.SetActive(false);
         }
     }
 }
